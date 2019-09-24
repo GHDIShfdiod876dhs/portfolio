@@ -31,10 +31,7 @@ body {
       font-size: 2.5rem;
       margin: 0;
       margin-left: calc(1rem + 10px);
-      text-shadow:
-        0px 5px rgba(20, 20, 20, 0.2),
-        0px 6px rgba(20, 20, 20, 0.1),
-        0px 7px rgba(20, 20, 20, 0.05);
+      text-shadow: $text-shadow;
       white-space: nowrap;
     }
 
@@ -81,10 +78,7 @@ body {
 
         &:not(.active):hover {
           color: rgba(255, 255, 255, 0.85);
-          text-shadow:
-            0px 3px rgba(20, 20, 20, 0.2),
-            0px 4px rgba(20, 20, 20, 0.1),
-            0px 5px rgba(20, 20, 20, 0.05);
+          text-shadow: $text-shadow;
         }
 
         input[type='radio'] {
@@ -119,10 +113,12 @@ body {
         height: var(--prism-height);
         background: rgba(80, 80, 80, 0.80);
         box-shadow: $shadow;
-        color: rgba(0, 0, 0, 0);
+        color: rgba(255, 255, 255, 0.9);
 
         &.active {
-          color: rgba(255, 255, 255, 0.9);
+          .contents {
+            visibility: visible;
+          }
         }
 
         &--front {
@@ -148,20 +144,156 @@ body {
         }
 
         .contents {
+          visibility: hidden;
+
           --contents-padding: 2rem;
           height: calc(100% - 2 * var(--contents-padding));
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
           align-items: center;
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           padding: 0 2rem;
           padding: var(--contents-padding);
           font-weight: bold;
           text-align: center;
 
-          .dev {
+          h1 {
             font-size: 2.5rem;
+            margin-bottom: 1rem;
+          }
+
+          h1,
+          h3,
+          h5 {
+            text-shadow: $text-shadow;
+          }
+
+          &#home {
+            .dev {
+              font-size: 2.5rem;
+            }
+          }
+
+          &#about-me {
+            text-shadow: $shadow;
+          }
+
+          &#education {
+            .notre-dame {
+              display: flex;
+              align-items: center;
+
+              .image {
+                width: 100%;
+                margin-right: 1rem;
+
+                img {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+            }
+          }
+
+          &#recent-work {
+            .project {
+              display: grid;
+              grid-template: 'left right'1fr / 1fr 2fr;
+              gap: 0.5rem;
+
+              // &:not(.active) {
+              //   // .right {
+              //   //   display: none;
+              //   // }
+              //   .left {
+              //     // .screenshot,
+              //     .links,
+              //     .technologies {
+              //       display: none;
+              //     }
+              //   }
+              // }
+
+              .left {
+                grid-area: left;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .header {
+                  display: flex;
+                  margin-bottom: 1rem;
+
+                  h3 {
+                    margin-left: 0.5rem;
+                  }
+                }
+
+                .screenshot {
+                  width: 75%;
+                  min-width: 130px;
+                  height: 50%;
+                  background-position: center;
+                  background-size: cover;
+                  box-shadow: $shadow;
+                  border: 3px solid rgb(80, 80, 80);
+                  border-radius: 5px;
+                  margin-bottom: 0.5rem;
+
+                  &#meal-plan-screenshot {
+                    background-image: url('../static/projects/meal-plan-screenshot.png');
+                  }
+
+                  &#training-log-screenshot {
+                    background-image: url('../static/projects/training-log-screenshot.png');
+                  }
+                }
+
+                .links {
+                  font-size: 0.9rem;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+
+                  a {
+                    color: inherit;
+                    text-decoration: none;
+                    margin: 0 1rem;
+                  }
+                }
+
+                .technologies {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-top: 2rem;
+
+                  div {
+                    height: 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
+                }
+              }
+
+              .right {
+                grid-area: right;
+
+                h5:not(:nth-child(1)) {
+                  margin-top: 1rem;
+                }
+
+                p {
+                  font-size: 0.8rem;
+                  margin: 0.5rem 0;
+                  text-align: justify;
+                  word-wrap: break-word;
+                }
+              }
+            }
           }
         }
       }

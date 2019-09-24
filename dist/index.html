@@ -8,7 +8,8 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.min.css">
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
 <body>
 
@@ -43,27 +44,133 @@
     <div class="scene">
       <div class="prism">
         <div class="prism__face prism__face--front">
-          <div class="contents">
-            <span class="dev">Full-stack Javascript developer</span>
-            <span class="lifter">former semi-professional picker-up and putter-down of things</span>
-            <div class="hyphenator">avid hyphenator</div>
+          <div id="home" class="contents">
+            <h1>Full-stack Javascript developer</h1>
+            <h3>Former semi-professional picker-up and putter-down of things</h3>
+            <h3>Avid hyphenator</h3>
           </div>
-          <!-- <div class="prism__face prism__face--front backface"></div> -->
+        </div>
+
+        <div class="prism__face prism__face--right">
+          <div id="about-me" class="contents">
+            <h1>About me</h1>
+          </div>
         </div>
 
         <div class="prism__face prism__face--back">
-          <div class="contents">
+          <div id="education" class="contents">
             <h1>Education</h1>
-            <p>Self-taught javascript programmer</p>
-            <p>Bachelor's of Science in Biochemistry from the University of Notre Dame, 2006</p>
-            <p>where I was part of the Arts and Letters/Sciences Honors Program</p>
+            <p>Self-taught programmer, web developer, and designer</p>
+            <div class="notre-dame">
+              <div class="image">
+                <img src="static/jpg/nd-dome.jpg" alt="University of Notre Dame">
+              </div>
+              <p>Bachelor's of Science in Biochemistry from the University of Notre Dame, Arts & Letters/Sciences Honors Program, 2006</p>
+            </div>
           </div>
         </div>
-        <div class="prism__face prism__face--right">
-          <div class="contents">About me</div>
-        </div>
+
         <div class="prism__face prism__face--left">
-          <div class="contents">Recent work</div>
+          <div id="recent-work" class="contents">
+            <h1>Recent work</h1>
+            <div class="project">
+              <div class="left">
+                <div class="header">
+                  <img src="static/projects/meal-plan-logo.png" alt="Meal Plan logo" width="25" height="25">
+                  <h3>Meal Plan</h3>
+                </div>
+                <div id="meal-plan-screenshot" class="screenshot"></div>
+                <div class="links">
+                  <div class="live">
+                    <a href="https://mealplan-c05a5.firebaseapp.com">
+                      Live site
+                    </a>
+                  </div>
+                  <div class="repo">
+                    <a href="https://github.com/GHDIShfdiod876dhs/meal-plan">
+                      Github
+                    </a>
+                  </div>
+                </div>
+                <div class="technologies">
+                  <div>
+                    <img src="static/technology-icons/svelte-logo.svg" alt="svelte3" width="100">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/firebase-logo.svg" alt="firebase" width="100">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/bulma-logo.svg" alt="bulma" width="90">
+                  </div>
+                </div>
+              </div>
+
+              <div class="right">
+                <h5>Concept:</h5>
+                <p>To hand over to the app as much of the cognitive overhead entailed in feeding myself as possible</p>
+                <h5>Design challenges:</h5>
+                <p>Learning from the Training Log app, I wanted the app behave as intuitively as possible, rather than forcing the user to generate inputs that would be easy to handle programmatically.</p>
+                <p>From a pure design standpoint, creating a drag-and-drop calendar interface that was simultaneously user- and mobile-friendly was a challenge, simply because of the limited screen real estate. CSS grid with custom breakpoints and the scroll-snap API</p>
+                <h5>Technical challenges:</h5>
+                <p>Aside from learning two new (to me) technologies (Svelte3 and Firebase), the main technical challenge of this project was in anticipating unstructured user inputs and parsing them to something predictable. Initially, I intended to use a natural language processing library to handle this task, but I ended up preferring my own code.</p>
+                <p>A lesser technical challenge was balancing responsiveness with a desire for a single source of truth. Firestore is fast, but not instantaneous. Svelte3's stores provide a convenient way to optimistically update the UI while reading/writing to the database.</p>
+                <p>Once I was satisfied with the design for the calendar, CSS Grid and CSS Scroll Snap provided a convenient way to implement it.</p>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="left">
+                <div class="header">
+                  <img src="static/projects/training-log-logo.png" alt="Training Log logo" width="25">
+                  <h3>Training Log</h3>
+                </div>
+                <div id="training-log-screenshot" class="screenshot"></div>
+                <div class="links">
+                  <div class="live">
+                    <a href="https://training-log.now.sh">
+                      Live site
+                    </a>
+                  </div>
+                  <div class="repo">
+                    <a href="https://github.com/GHDIShfdiod876dhs/training-log">
+                      Github
+                    </a>
+                  </div>
+                </div>
+                <div class="technologies">
+                  <div>
+                    <img src="static/technology-icons/react-logo.svg" alt="react" width="100">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/graphql-logo.svg" alt="graphQL" width="100">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/nodejs-logo.svg" alt="node.js" width="90">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/expressjs-logo.svg" alt="express.js" width="90">
+                  </div>
+                  <div>
+                    <img src="static/technology-icons/apollo-logo.svg" alt="apollo" width="90">
+                  </div>
+                </div>
+              </div>
+
+              <div class="right">
+                <h5>Concept:</h5>
+                <p>To create an app flexible and extensible enough to track any numeric training data that might be important to any athlete</p>
+                <h5>Design challenges:</h5>
+                <p>The concept for this project was all about letting the user specify what data they wanted to track, and then for the app to be able to sift through the data they record and look for correlations.</p>
+                <p>On the design side, this meant walking a fine line between limiting functionality and limiting fun. It turned out to be quite difficult to allow the kind of flexibility I imagined without asking the user to behave like a computer.</p>
+                <h5>Technical challenges:</h5>
+                <p>Training Log was my full-stack app, and by far the biggest project I had tackled to date. I learned React, Apollo, and graphQL simultaneously for this project.
+                </p>
+                <p>It meant a pretty draining first couple of weeks, but in the end I think it was justified. The flexibility afforded by graphQL gave me one of the things I wanted most out of this app, namely the ability to let the user define the shape of their own data, while the UI code sees predictably shaped data coming from the back end.</p>
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
     </div>
