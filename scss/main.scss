@@ -115,6 +115,10 @@ body {
         box-shadow: $shadow;
         color: rgba(255, 255, 255, 0.9);
 
+        // overflow-y: auto;
+        // overflow-x: hidden;
+        // padding-bottom: 2rem;
+
         &.active {
           .contents {
             visibility: visible;
@@ -147,7 +151,8 @@ body {
           visibility: hidden;
 
           --contents-padding: 2rem;
-          height: calc(100% - 2 * var(--contents-padding));
+          height: 100%;
+          max-height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
@@ -197,100 +202,142 @@ body {
           }
 
           &#recent-work {
+            display: grid;
+            grid-template: 'header    header'3rem 'meal-plan training-log'calc(100% - 3rem) / auto auto;
+            // gap: 0.5rem;
+            place-items: start;
+
+            h1 {
+              grid-area: header;
+              place-self: center center;
+            }
+
+            .back-button {
+              background-color: $dark-bg;
+              border: none;
+              border-radius: 50%;
+              box-shadow: $shadow;
+              color: inherit;
+              font-size: 1rem;
+              opacity: 0;
+              padding: 1rem;
+              position: absolute;
+              right: 0;
+              top: 0;
+
+              &:hover {
+                color: rgba(255, 255, 255, 0.85);
+                text-shadow: $text-shadow;
+              }
+            }
+
             .project {
-              display: grid;
-              grid-template: 'left right'1fr / 1fr 2fr;
-              gap: 0.5rem;
+              --screenshot-width: 180px;
+              --minimized-height: calc(290px + 3rem);
 
-              // &:not(.active) {
-              //   // .right {
-              //   //   display: none;
-              //   // }
-              //   .left {
-              //     // .screenshot,
-              //     .links,
-              //     .technologies {
-              //       display: none;
-              //     }
-              //   }
-              // }
+              height: 100%;
+              max-height: 100%;
+              clip-path: polygon(0 0, var(--screenshot-width) 0, var(--screenshot-width) var(--minimized-height), 0 var(--minimized-height));
+              cursor: zoom-in;
+              overflow: auto;
+              position: relative;
+              left: calc(50% - 0.5 * var(--screenshot-width));
+              top: calc(50% - 0.5 * var(--minimized-height));
 
-              .left {
-                grid-area: left;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                .header {
-                  display: flex;
-                  margin-bottom: 1rem;
-
-                  h3 {
-                    margin-left: 0.5rem;
-                  }
-                }
-
-                .screenshot {
-                  width: 75%;
-                  min-width: 130px;
-                  height: 50%;
-                  background-position: center;
-                  background-size: cover;
-                  box-shadow: $shadow;
-                  border: 3px solid rgb(80, 80, 80);
-                  border-radius: 5px;
-                  margin-bottom: 0.5rem;
-
-                  &#meal-plan-screenshot {
-                    background-image: url('../static/projects/meal-plan-screenshot.png');
-                  }
-
-                  &#training-log-screenshot {
-                    background-image: url('../static/projects/training-log-screenshot.png');
-                  }
-                }
-
-                .links {
-                  font-size: 0.9rem;
-                  display: flex;
-                  flex-wrap: wrap;
-                  justify-content: space-between;
-
-                  a {
-                    color: inherit;
-                    text-decoration: none;
-                    margin: 0 1rem;
-                  }
-                }
-
-                .technologies {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                  flex-wrap: wrap;
-                  margin-top: 2rem;
-
-                  div {
-                    height: 3rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  }
-                }
+              &project__meal-plan {
+                grid-area: meal-plan;
               }
 
-              .right {
-                grid-area: right;
+              &project__training-log {
+                grid-area: training-log;
+              }
 
-                h5:not(:nth-child(1)) {
-                  margin-top: 1rem;
+              .grid-container {
+                display: grid;
+                grid-template: 'left right'1fr / var(--screenshot-width) auto;
+                gap: 0.5rem;
+
+                .left {
+                  grid-area: left;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  overflow: auto;
+
+                  .header {
+                    display: flex;
+                    margin-bottom: 1rem;
+
+                    h3 {
+                      margin-left: 0.5rem;
+                    }
+                  }
+
+                  .screenshot {
+                    width: 140px;
+                    min-width: 140px;
+                    height: 290px;
+                    min-height: 290px;
+                    background-position: center;
+                    background-size: cover;
+                    box-shadow: $shadow;
+                    border: 3px solid rgb(80, 80, 80);
+                    border-radius: 5px;
+                    margin-bottom: 0.5rem;
+
+                    &#meal-plan-screenshot {
+                      background-image: url('../static/projects/meal-plan-screenshot.png');
+                    }
+
+                    &#training-log-screenshot {
+                      background-image: url('../static/projects/training-log-screenshot.png');
+                    }
+                  }
+
+                  .links {
+                    font-size: 0.9rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    a {
+                      color: inherit;
+                      text-decoration: none;
+                      margin: 0 1rem;
+                    }
+                  }
+
+                  .technologies {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    margin-top: 2rem;
+
+                    div {
+                      height: 3rem;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    }
+                  }
                 }
 
-                p {
-                  font-size: 0.8rem;
-                  margin: 0.5rem 0;
-                  text-align: justify;
-                  word-wrap: break-word;
+                .right {
+                  height: 100%;
+                  grid-area: right;
+                  overflow: auto;
+
+                  h5:not(:nth-child(1)) {
+                    margin-top: 1rem;
+                  }
+
+                  p {
+                    font-size: 0.8rem;
+                    margin: 0.5rem 0;
+                    text-align: justify;
+                    word-wrap: break-word;
+                  }
                 }
               }
             }

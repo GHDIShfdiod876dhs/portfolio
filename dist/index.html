@@ -11,76 +11,81 @@
   <!-- <link rel="stylesheet" href="css/main.css"> -->
   <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
+
 <body>
+  <nav>
+    <h1>Chris Schroeder</h1>
+    <div class="big-screen links">
+      <label class="active">
+        <input type="radio" name="rotate-prism-side" value="front" checked />
+        Home
+      </label>
+      <label>
+        <input type="radio" name="rotate-prism-side" value="right" />
+        About Me
+      </label>
+      <label>
+        <input type="radio" name="rotate-prism-side" value="back" />
+        Education
+      </label>
+      <label>
+        <input type="radio" name="rotate-prism-side" value="left" />
+        Recent Work
+      </label>
+    </div>
 
+    <div class="small-screen toggle">
+      >
+    </div>
+  </nav>
 
-  <!-- <main> -->
-    <nav>
-      <h1>Chris Schroeder</h1>
-      <div class="big-screen links">
-        <label class="active">
-          <input type="radio" name="rotate-prism-side" value="front" checked />
-          Home
-        </label>
-        <label>
-          <input type="radio" name="rotate-prism-side" value="right" />
-          About Me
-        </label>
-        <label>
-          <input type="radio" name="rotate-prism-side" value="back" />
-          Education
-        </label>
-        <label>
-          <input type="radio" name="rotate-prism-side" value="left" />
-          Recent Work
-        </label>
+  <div class="scene">
+    <div class="prism">
+      <div class="prism__face prism__face--front">
+        <div id="home" class="contents">
+          <h1>Full-stack Javascript developer</h1>
+          <h3>Former semi-professional picker-up and putter-down of things</h3>
+          <h3>Avid hyphenator</h3>
+        </div>
       </div>
 
-      <div class="small-screen toggle">
-        >
+      <div class="prism__face prism__face--right">
+        <div id="about-me" class="contents">
+          <h1>About me</h1>
+        </div>
       </div>
-    </nav>
 
-    <div class="scene">
-      <div class="prism">
-        <div class="prism__face prism__face--front">
-          <div id="home" class="contents">
-            <h1>Full-stack Javascript developer</h1>
-            <h3>Former semi-professional picker-up and putter-down of things</h3>
-            <h3>Avid hyphenator</h3>
-          </div>
-        </div>
-
-        <div class="prism__face prism__face--right">
-          <div id="about-me" class="contents">
-            <h1>About me</h1>
-          </div>
-        </div>
-
-        <div class="prism__face prism__face--back">
-          <div id="education" class="contents">
-            <h1>Education</h1>
-            <p>Self-taught programmer, web developer, and designer</p>
-            <div class="notre-dame">
-              <div class="image">
-                <img src="static/jpg/nd-dome.jpg" alt="University of Notre Dame">
-              </div>
-              <p>Bachelor's of Science in Biochemistry from the University of Notre Dame, Arts & Letters/Sciences Honors Program, 2006</p>
+      <div class="prism__face prism__face--back">
+        <div id="education" class="contents">
+          <h1>Education</h1>
+          <p>Self-taught programmer, web developer, and designer</p>
+          <div class="notre-dame">
+            <div class="image">
+              <img src="static/jpg/nd-dome.jpg" alt="University of Notre Dame">
             </div>
+            <p>Bachelor's of Science in Biochemistry from the University of Notre Dame, Arts & Letters/Sciences Honors Program, 2006</p>
           </div>
         </div>
+      </div>
 
-        <div class="prism__face prism__face--left">
-          <div id="recent-work" class="contents">
-            <h1>Recent work</h1>
-            <div class="project">
-              <div class="left">
-                <div class="header">
-                  <img src="static/projects/meal-plan-logo.png" alt="Meal Plan logo" width="25" height="25">
-                  <h3>Meal Plan</h3>
-                </div>
-                <div id="meal-plan-screenshot" class="screenshot"></div>
-                <div class="links">
+      <div class="prism__face prism__face--left">
+        <div id="recent-work" class="contents">
+          <h1>Recent work</h1>
+
+          <button class="back-button"><<</button>
+
+          <!-- <svg width="50%" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <foreignobject x="0" y="0" width="200" height="100%"> -->
+              <div class="project project__meal-plan">
+                <div class="grid-container">
+
+                  <div class="left">
+                    <div class="header">
+                      <img src="static/projects/meal-plan-logo.png" alt="Meal Plan logo" width="25" height="25">
+                      <h3>Meal Plan</h3>
+                    </div>
+                    <div id="meal-plan-screenshot" class="screenshot"></div>
+                    <div class="links">
                   <div class="live">
                     <a href="https://mealplan-c05a5.firebaseapp.com">
                       Live site
@@ -104,24 +109,33 @@
                   </div>
                 </div>
               </div>
+              <!-- </foreignobject> -->
 
-              <div class="right">
-                <h5>Concept:</h5>
-                <p>To hand over to the app as much of the cognitive overhead entailed in feeding myself as possible</p>
-                <h5>Design challenges:</h5>
-                <p>Learning from the Training Log app, I wanted the app behave as intuitively as possible, rather than forcing the user to generate inputs that would be easy to handle programmatically.</p>
-                <p>From a pure design standpoint, creating a drag-and-drop calendar interface that was simultaneously user- and mobile-friendly was a challenge, simply because of the limited screen real estate. CSS grid with custom breakpoints and the scroll-snap API</p>
-                <h5>Technical challenges:</h5>
-                <p>Aside from learning two new (to me) technologies (Svelte3 and Firebase), the main technical challenge of this project was in anticipating unstructured user inputs and parsing them to something predictable. Initially, I intended to use a natural language processing library to handle this task, but I ended up preferring my own code.</p>
-                <p>A lesser technical challenge was balancing responsiveness with a desire for a single source of truth. Firestore is fast, but not instantaneous. Svelte3's stores provide a convenient way to optimistically update the UI while reading/writing to the database.</p>
-                <p>Once I was satisfied with the design for the calendar, CSS Grid and CSS Scroll Snap provided a convenient way to implement it.</p>
+              <!-- <foreignobject x="210" y="0" width="400" height="100%"> -->
+                <div class="right">
+                  <h5>Concept:</h5>
+                  <p>To hand over to the app as much of the cognitive overhead entailed in feeding myself as possible</p>
+                  <h5>Design challenges:</h5>
+                  <p>Learning from the Training Log app, I wanted the app behave as intuitively as possible, rather than forcing the user to generate inputs that would be easy to handle programmatically.</p>
+                  <p>From a pure design standpoint, creating a drag-and-drop calendar interface that was simultaneously user- and mobile-friendly was a challenge, simply because of the limited screen real estate. CSS grid with custom breakpoints and the scroll-snap API</p>
+                  <h5>Technical challenges:</h5>
+                  <p>Aside from learning two new (to me) technologies (Svelte3 and Firebase), the main technical challenge of this project was in anticipating unstructured user inputs and parsing them to something predictable. Initially, I intended to use a natural language processing library to handle this task, but I ended up preferring my own code.</p>
+                  <p>A lesser technical challenge was balancing responsiveness with a desire for a single source of truth. Firestore is fast, but not instantaneous. Svelte3's stores provide a convenient way to optimistically update the UI while reading/writing to the database.</p>
+                  <p>Once I was satisfied with the design for the calendar, CSS Grid and CSS Scroll Snap provided a convenient way to implement it.</p>
+                </div>
               </div>
             </div>
+          <!-- </foreignobject>
+        </svg> -->
 
-            <div class="project">
-              <div class="left">
-                <div class="header">
-                  <img src="static/projects/training-log-logo.png" alt="Training Log logo" width="25">
+        <!-- <svg width="100%" viewBox="0 0 512 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <foreignobject x="0" y="0" width="100%" height="100%"> -->
+            <div class="project project__training-log">
+              <div class="grid-container">
+
+                <div class="left">
+                  <div class="header">
+                    <img src="static/projects/training-log-logo.png" alt="Training Log logo" width="25">
                   <h3>Training Log</h3>
                 </div>
                 <div id="training-log-screenshot" class="screenshot"></div>
@@ -168,21 +182,22 @@
                 <p>It meant a pretty draining first couple of weeks, but in the end I think it was justified. The flexibility afforded by graphQL gave me one of the things I wanted most out of this app, namely the ability to let the user define the shape of their own data, while the UI code sees predictably shaped data coming from the back end.</p>
               </div>
             </div>
-
-
           </div>
+            <!-- </foreignobject>
+          </svg> -->
+
         </div>
       </div>
     </div>
+  </div>
 
-    <footer>
-      <div class="copyright">&copy;2019 Chris Schroeder</div>
-    </footer>
-  <!-- </main> -->
-
-
+  <footer>
+    <div class="copyright">&copy;2019 Chris Schroeder</div>
+  </footer>
 
   <script src="scripts/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="scripts/recentWork.js"></script>
 </body>
 </html>
 
