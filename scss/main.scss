@@ -33,6 +33,10 @@ body {
       margin-left: calc(1rem + 10px);
       text-shadow: $text-shadow;
       white-space: nowrap;
+
+      @media only screen and (max-width: 400px) {
+        font-size: 2rem;
+      }
     }
 
     div {
@@ -115,10 +119,6 @@ body {
         box-shadow: $shadow;
         color: rgba(255, 255, 255, 0.9);
 
-        // overflow-y: auto;
-        // overflow-x: hidden;
-        // padding-bottom: 2rem;
-
         &.active {
           .contents {
             visibility: visible;
@@ -182,9 +182,41 @@ body {
 
           &#about-me {
             text-shadow: $shadow;
+            text-align: justify;
+
+            .text {
+              overflow: auto;
+              margin: 0 -1rem 1rem -1rem;
+              // margin-bottom: 1rem;
+              font-size: 1rem;
+              padding: 0 1rem;
+
+              p {
+                margin: 0.5rem auto;
+                clear: all;
+              }
+
+              img {
+                width: 40%;
+                min-width: 200px;
+                height: auto;
+                box-shadow: $shadow;
+                float: left;
+                margin-right: 1rem;
+                margin-top: 0.5rem;
+
+                @media only screen and (max-width: 500px) {
+                  float: unset;
+                  margin: 0.5rem auto;
+                  width: 100%;
+                }
+              }
+            }
           }
 
           &#education {
+            text-shadow: $shadow;
+
             .notre-dame {
               display: flex;
               align-items: center;
@@ -196,6 +228,16 @@ body {
                 img {
                   width: 100%;
                   height: auto;
+                  box-shadow: $shadow;
+                }
+              }
+
+              @media only screen and (max-width: 500px) {
+                flex-direction: column;
+
+                .image {
+                  margin: 0;
+                  margin-bottom: 1rem;
                 }
               }
             }
@@ -204,7 +246,6 @@ body {
           &#recent-work {
             display: grid;
             grid-template: 'header    header'3rem 'meal-plan training-log'calc(100% - 3rem) / auto auto;
-            // gap: 0.5rem;
             place-items: start;
 
             h1 {
