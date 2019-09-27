@@ -262,14 +262,10 @@ body {
               color: inherit;
               font-size: 1rem;
               opacity: 0;
-              padding: 1rem;
+              padding: 0.5rem;
               position: absolute;
               right: 0;
               top: 0;
-
-              @media only screen and (max-width: 500px) {
-                padding: 0.5rem;
-              }
 
               &:hover {
                 color: rgba(255, 255, 255, 0.85);

@@ -31,6 +31,9 @@ function expand(project) {
     const MAX_WIDTH = parseFloat(width) - 4 * REM();
     const MAX_HEIGHT = parseFloat(height) - 7 * REM();
 
+    const backButtonTop = window.innerWidth > 380 ? '1rem' : '0.5rem';
+    const backButtonRight = window.innerWidth > 380 ? '2rem' : '0.5rem';
+
     const other = project === mealPlan ? trainingLog : mealPlan;
     const t = new TimelineMax();
 
@@ -48,7 +51,12 @@ function expand(project) {
     t.to(project, 0.5, { width: MAX_WIDTH, height: MAX_HEIGHT });
 
     // back button appears
-    t.to(backButton, 0.5, { opacity: 0.9, top: '1rem', right: '2rem' }, '-=0.5');
+    t.to(
+      backButton,
+      0.5,
+      { opacity: 0.9, top: backButtonTop, right: backButtonRight },
+      '-=0.5'
+    );
   }
 }
 
