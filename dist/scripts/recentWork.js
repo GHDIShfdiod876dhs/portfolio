@@ -8,9 +8,12 @@ const listeners = {};
 
 const REM = () =>
   parseFloat(getComputedStyle(document.documentElement).fontSize);
-const MIN_WIDTH = 180;
-const SCREENSHOT_HEIGHT = 290;
-const MIN_HEIGHT = () => SCREENSHOT_HEIGHT + 3 * REM();
+
+window.addEventListener('resize', () => {
+  projects.forEach(project => {
+    listeners[`collapse_${project.id}`]();
+  })
+})
 
 projects.forEach(project => {
   listeners[`expand_${project.id}`] = expand(project);
@@ -56,6 +59,9 @@ function collapse(project) {
     project.style.cursor = 'zoom-in';
     project.style.overflow = 'hidden';
 
+    const MIN_WIDTH = window.innerWidth > 380 ? 180 : 150;
+    const MIN_HEIGHT = 290 + 3 * REM();
+
     const other = project === mealPlan ? trainingLog : mealPlan;
     const t = new TimelineMax();
 
@@ -63,7 +69,7 @@ function collapse(project) {
     t.to(backButton, 0.5, { opacity: 0, top: 0, right: 0 });
 
     // project shrinks
-    t.to(project, 0.5, { width: MIN_WIDTH, height: MIN_HEIGHT() }, '-=0.5');
+    t.to(project, 0.5, { width: MIN_WIDTH, height: MIN_HEIGHT }, '-=0.5');
 
     // project moves back to column center
     t.to(project, 0.5, { top: 'unset', left: 'unset' });

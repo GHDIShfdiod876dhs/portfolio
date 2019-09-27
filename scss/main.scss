@@ -267,6 +267,10 @@ body {
               right: 0;
               top: 0;
 
+              @media only screen and (max-width: 500px) {
+                padding: 0.5rem;
+              }
+
               &:hover {
                 color: rgba(255, 255, 255, 0.85);
                 text-shadow: $text-shadow;
@@ -283,6 +287,10 @@ body {
               cursor: zoom-in;
               position: relative;
 
+              @media only screen and (max-width: 380px) {
+                --minimized-width: 150px;
+              }
+
               &__meal-plan {
                 grid-area: meal-plan;
                 left: calc(50% - 0.5 * var(--minimized-width));
@@ -298,6 +306,12 @@ body {
                 grid-template: 'left right'1fr / var(--minimized-width) auto;
                 gap: 0.5rem;
 
+                @media only screen and (max-width: 500px) {
+                  grid-template:
+                    'left'  min-content
+                    'right' min-content / 1fr;
+                }
+
                 .left {
                   grid-area: left;
                   display: flex;
@@ -308,6 +322,10 @@ body {
                   .header {
                     display: flex;
                     margin-bottom: 1rem;
+
+                    @media only screen and (max-width: 380px) {
+                      font-size: 1rem;
+                    }
 
                     h3 {
                       margin-left: 0.5rem;
