@@ -163,6 +163,10 @@ body {
           font-weight: bold;
           text-align: center;
 
+          @media only screen and (max-width: 380px) {
+            font-size: 1rem;
+          }
+
           h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -216,6 +220,7 @@ body {
 
           &#education {
             text-shadow: $shadow;
+            font-size: 1rem;
 
             .notre-dame {
               display: flex;
@@ -246,8 +251,7 @@ body {
           &#recent-work {
             display: grid;
             grid-template:
-              'header    header'       3rem
-              'meal-plan training-log' 1fr / auto auto;
+              'header    header'3rem 'meal-plan training-log'1fr / auto auto;
             place-items: center center;
 
             h1 {
@@ -304,8 +308,7 @@ body {
 
                 @media only screen and (max-width: 500px) {
                   grid-template:
-                    'left'  min-content
-                    'right' min-content / 1fr;
+                    'left'min-content 'right'min-content / 1fr;
                 }
 
                 .left {
@@ -318,10 +321,8 @@ body {
                   .header {
                     display: flex;
                     margin-bottom: 1rem;
-
-                    @media only screen and (max-width: 380px) {
-                      font-size: 1rem;
-                    }
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
 
                     h3 {
                       margin-left: 0.5rem;
