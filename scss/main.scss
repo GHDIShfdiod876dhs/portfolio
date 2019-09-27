@@ -245,12 +245,13 @@ body {
 
           &#recent-work {
             display: grid;
-            grid-template: 'header    header'3rem 'meal-plan training-log'calc(100% - 3rem) / auto auto;
-            place-items: start;
+            grid-template:
+              'header    header'       3rem
+              'meal-plan training-log' 1fr / auto auto;
+            place-items: center center;
 
             h1 {
               grid-area: header;
-              place-self: center center;
             }
 
             .back-button {
@@ -273,29 +274,28 @@ body {
             }
 
             .project {
-              --screenshot-width: 180px;
               --minimized-height: calc(290px + 3rem);
+              --minimized-width: 180px;
 
-              height: 100%;
-              max-height: 100%;
-              clip-path: polygon(0 0, var(--screenshot-width) 0, var(--screenshot-width) var(--minimized-height), 0 var(--minimized-height));
+              width: var(--minimized-width);
+              height: var(--minimized-height);
+              overflow: hidden;
               cursor: zoom-in;
-              overflow: auto;
               position: relative;
-              left: calc(50% - 0.5 * var(--screenshot-width));
-              top: calc(50% - 0.5 * var(--minimized-height));
 
-              &project__meal-plan {
+              &__meal-plan {
                 grid-area: meal-plan;
+                left: calc(50% - 0.5 * var(--minimized-width));
               }
 
-              &project__training-log {
+              &__training-log {
                 grid-area: training-log;
+                right: calc(-50% + 0.5 * var(--minimized-width));
               }
 
               .grid-container {
                 display: grid;
-                grid-template: 'left right'1fr / var(--screenshot-width) auto;
+                grid-template: 'left right'1fr / var(--minimized-width) auto;
                 gap: 0.5rem;
 
                 .left {
