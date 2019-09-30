@@ -49,18 +49,6 @@ body {
         &.toggle {
           transform: rotate(0);
 
-          // svg {
-          //   path {
-          //     fill-opacity: 0.7;
-          //   }
-
-          //   &:hover {
-          //     path {
-          //       fill-opacity: 0.85;
-          //     }
-          //   }
-          // }
-
           &.active {
             transform: rotate(90deg);
           }
@@ -277,22 +265,6 @@ body {
               position: absolute;
               right: 0;
               top: 0;
-
-              // svg {
-              //   path {
-              //     fill-opacity: 0.7;
-              //   }
-
-              //   &:hover {
-              //     g {
-              //       filter: url(#back-button-shadow_2);
-
-              //       path {
-              //         fill-opacity: 0.85;
-              //       }
-              //     }
-              //   }
-              // }
             }
 
             .project {
