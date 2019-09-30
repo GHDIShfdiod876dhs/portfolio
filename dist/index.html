@@ -145,7 +145,7 @@
                   <p>To hand over to the app as much of the cognitive overhead entailed in feeding myself as possible</p>
                   <h5>Design challenges:</h5>
                   <p>Learning from the Training Log app, I wanted the app behave as intuitively as possible, rather than forcing the user to generate inputs that would be easy to handle programmatically.</p>
-                  <p>From a pure design standpoint, creating a drag-and-drop calendar interface that was simultaneously user- and mobile-friendly was a challenge, simply because of the limited screen real estate. CSS grid with custom breakpoints and the scroll-snap API</p>
+                  <p>From a pure design standpoint, creating a drag-and-drop calendar interface that was simultaneously user- and mobile-friendly was a challenge, simply because of the limited screen real estate.</p>
                   <h5>Technical challenges:</h5>
                   <p>Aside from learning two new (to me) technologies (Svelte3 and Firebase), the main technical challenge of this project was in anticipating unstructured user inputs and parsing them to something predictable. Initially, I intended to use a natural language processing library to handle this task, but I ended up preferring my own code.</p>
                   <p>A lesser technical challenge was balancing responsiveness with a desire for a single source of truth. Firestore is fast, but not instantaneous. Svelte3's stores provide a convenient way to optimistically update the UI while reading/writing to the database.</p>
