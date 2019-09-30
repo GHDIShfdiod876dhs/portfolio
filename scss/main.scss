@@ -147,6 +147,18 @@ body {
             rotateY(180deg) translateZ(calc(var(--prism-width) / 2));
         }
 
+        &--top {
+          height: var(--prism-width);
+          transform:
+            translateY(-50%) rotateX(90deg);
+        }
+
+        &--bottom {
+          height: var(--prism-width);
+          transform:
+            translateY(-50%) rotateX(-90deg) translateZ(var(--prism-height));
+        }
+
         .contents {
           visibility: hidden;
 
@@ -191,7 +203,6 @@ body {
             .text {
               overflow: auto;
               margin: 0 -1rem 1rem -1rem;
-              // margin-bottom: 1rem;
               font-size: 1rem;
               padding: 0 1rem;
 
@@ -405,6 +416,10 @@ body {
 
       &.show-left {
         transform: translateZ(var(--z-pos)) rotateY(-270deg);
+      }
+
+      &.show-top {
+        transform: translateZ(var(--z-pos)) rotateX(-90deg);
       }
     }
   }
