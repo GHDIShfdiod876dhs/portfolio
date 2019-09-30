@@ -68,32 +68,28 @@ function collapseDropdown() {
 
 function swipedetect(element, callback) {
   const
-    threshold =   150, // required min distance
-    restraint =   100, // maximum perpendicular distance allowed
-    allowedTime = 300; // maximum time allowed to travel that distance
+    threshold = 150, // required minimum distance
+    restraint = 100, // maximum perpendicular distance allowed
+    maxTime   = 300;
 
-  let
-    startX,
-    startY,
-    startTime;
+  let x0, y0, t0;
 
   element.addEventListener('touchstart', event => {
-    // event.preventDefault();
     const touch = event.changedTouches[0];
-    startX = touch.pageX;
-    startY = touch.pageY;
-    startTime = new Date().getTime();
+    x0 = touch.pageX;
+    y0 = touch.pageY;
+    t0 = new Date().getTime();
   }, false);
 
   element.addEventListener('touchend', event => {
     const touch = event.changedTouches[0]
-    const dt = new Date().getTime() - startTime;
-    const dx = touch.pageX - startX;
-    const dy = touch.pageY - startY;
+    const dt = new Date().getTime() - t0;
+    const dx = touch.pageX - x0;
+    const dy = touch.pageY - y0;
 
     let direction;
 
-    if (dt <= allowedTime) {
+    if (dt <= maxTime) {
       if (Math.abs(dx) >= threshold && Math.abs(dy) <= restraint) {
         direction = (dx < 0) ? 'left' : 'right';
       }
@@ -113,7 +109,7 @@ swipedetect(prism, handleSwipe);
 
 function handleSwipe(direction) {
   const buttons = [...links.children];
-  const activeIdx = buttons.findIndex(button => button.classList.contains('active'));
+  const activeIdx = buttons.findIndex(b => b.classList.contains('active'));
 
   if (direction === 'right') {
     const clickIdx = activeIdx === 0 ? buttons.length - 1 : activeIdx - 1;
