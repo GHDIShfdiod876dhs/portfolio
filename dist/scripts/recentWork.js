@@ -77,7 +77,12 @@ function collapse(project) {
     t.to(backButton, 0.5, { opacity: 0, top: 0, right: 0 });
 
     // project shrinks
-    t.to(project, 0.5, { width: MIN_WIDTH, height: MIN_HEIGHT, scrollTo: 0 }, '-=0.5');
+    t.to(
+      project,
+      0.5,
+      { width: MIN_WIDTH, height: MIN_HEIGHT, scrollTo: 0 },
+      '-=0.5'
+    );
 
     // project moves back to column center
     t.to(project, 0.5, { top: 'unset', left: 'unset' });
