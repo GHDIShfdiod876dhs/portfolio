@@ -32,19 +32,19 @@
     </div>
 
     <div class="small-screen toggle">
-      <svg width="25" height="25" viewBox="0 0 995 995" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_d)">
+      <svg width="25" height="25" viewBox="0 0 1015 1015" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#nav-toggle-shadow)">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M845 462.5C845 654.419 689.419 810 497.5 810C487.535 810 477.669 809.581 467.917 808.758L481.497 795.178L764.34 512.335L813.838 462.838L764.34 413.34L481.497 130.497L467.295 116.295C477.249 115.437 487.323 115 497.5 115C689.419 115 845 270.581 845 462.5ZM432 121.164C271.396 151.798 150 292.972 150 462.5C150 632.028 271.396 773.202 432 803.836V745.68L714.843 462.838L432 179.995V121.164ZM915 462.5C915 693.079 728.079 880 497.5 880C266.921 880 80 693.079 80 462.5C80 231.921 266.921 45 497.5 45C728.079 45 915 231.921 915 462.5Z"
-            fill="white" />
+            fill="white" fill-opacity="0.7" />
         </g>
         <defs>
-          <filter id="filter0_d" x="0" y="0" width="995" height="995" filterUnits="userSpaceOnUse"
+          <filter id="nav-toggle-shadow" x="0" y="0" width="1015" height="1015" filterUnits="userSpaceOnUse"
             color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix" />
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-            <feOffset dy="35" />
-            <feGaussianBlur stdDeviation="40" />
+            <feOffset dy="40" />
+            <feGaussianBlur stdDeviation="30" />
             <feColorMatrix type="matrix" values="0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0.85 0" />
             <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
@@ -98,12 +98,24 @@
           <h1>Recent work</h1>
 
           <button class="back-button">
-            <svg width="25" height="25" viewBox="0 0 835 835" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="417.5" cy="417.5" r="392.5" stroke-width="50" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M677.817 713.173L121.688 157.044L157.044 121.688L713.173 677.817L677.817 713.173Z" fill="black" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M686.869 112.775L112.121 687.524L148.915 721.44L722.224 148.131L686.869 112.775Z" fill="black" />
+            <svg width="25" height="25" viewBox="0 0 1015 1015" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#back-button-shadow_1)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M719.086 714.441C654.491 770.837 569.985 805 477.5 805C385.015 805 300.509 770.837 235.914 714.441L477.5 472.855L719.086 714.441ZM754.441 679.086L512.855 437.5L754.441 195.914C810.837 260.509 845 345.015 845 437.5C845 529.985 810.837 614.491 754.441 679.086ZM719.086 160.559L477.5 402.145L235.914 160.559C300.509 104.163 385.015 70 477.5 70C569.985 70 654.491 104.163 719.086 160.559ZM200.559 195.914C144.163 260.509 110 345.015 110 437.5C110 529.985 144.163 614.491 200.559 679.086L442.144 437.5L200.559 195.914ZM895 437.5C895 668.079 708.079 855 477.5 855C246.921 855 60 668.079 60 437.5C60 206.921 246.921 20 477.5 20C708.079 20 895 206.921 895 437.5Z"
+                  fill="white" fill-opacity="0.7" />
+              </g>
+              <defs>
+                <filter id="back-button-shadow_1" x="0" y="0" width="1015" height="1015" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                  <feOffset dy="40" />
+                  <feGaussianBlur stdDeviation="30" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0.85 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                </filter>
+              </defs>
             </svg>
           </button>
 
@@ -219,5 +231,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
   <script src="scripts/recentWork.js"></script>
+  <script src="scripts/buttonAnimations.js"></script>
 </body>
 </html>

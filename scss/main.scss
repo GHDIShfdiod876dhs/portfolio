@@ -49,6 +49,18 @@ body {
         &.toggle {
           transform: rotate(0);
 
+          // svg {
+          //   path {
+          //     fill-opacity: 0.7;
+          //   }
+
+          //   &:hover {
+          //     path {
+          //       fill-opacity: 0.85;
+          //     }
+          //   }
+          // }
+
           &.active {
             transform: rotate(90deg);
           }
@@ -259,22 +271,28 @@ body {
             }
 
             .back-button {
-              background-color: $dark-bg;
+              background-color: transparent;
               border: none;
-              border-radius: 50%;
-              box-shadow: $shadow;
-              color: inherit;
-              font-size: 1rem;
               opacity: 0;
-              padding: 0.5rem;
               position: absolute;
               right: 0;
               top: 0;
 
-              &:hover {
-                color: rgba(255, 255, 255, 0.85);
-                text-shadow: $text-shadow;
-              }
+              // svg {
+              //   path {
+              //     fill-opacity: 0.7;
+              //   }
+
+              //   &:hover {
+              //     g {
+              //       filter: url(#back-button-shadow_2);
+
+              //       path {
+              //         fill-opacity: 0.85;
+              //       }
+              //     }
+              //   }
+              // }
             }
 
             .project {
