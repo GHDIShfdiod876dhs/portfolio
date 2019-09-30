@@ -72,18 +72,18 @@ function swipedetect(element, callback) {
     restraint = 100, // maximum perpendicular distance allowed
     maxTime   = 300;
 
-  let x0, y0, t0;
+  let t0, x0, y0;
 
   element.addEventListener('touchstart', event => {
     const touch = event.changedTouches[0];
+    t0 = event.timeStamp;
     x0 = touch.pageX;
     y0 = touch.pageY;
-    t0 = new Date().getTime();
   }, false);
 
   element.addEventListener('touchend', event => {
     const touch = event.changedTouches[0]
-    const dt = new Date().getTime() - t0;
+    const dt = event.timeStamp - t0;
     const dx = touch.pageX - x0;
     const dy = touch.pageY - y0;
 
