@@ -110,14 +110,24 @@ swipedetect(prism, handleSwipe);
 function handleSwipe(direction) {
   const buttons = [...links.children];
   const activeIdx = buttons.findIndex(b => b.classList.contains('active'));
+  const top = buttons.length - 1;
+
+  if (activeIdx === top) {
+    buttons[0].click();
+    return;
+  }
 
   if (direction === 'right') {
-    const clickIdx = activeIdx === 0 ? buttons.length - 1 : activeIdx - 1;
+    const clickIdx = activeIdx === 0 ? buttons.length - 2 : activeIdx - 1;
     buttons[clickIdx].click();
   }
 
   if (direction === 'left') {
-    const clickIdx = activeIdx === buttons.length - 1 ? 0 : activeIdx + 1;
+    const clickIdx = activeIdx === buttons.length - 2 ? 0 : activeIdx + 1;
     buttons[clickIdx].click();
+  }
+
+  if (direction === 'down' && activeIdx !== top) {
+    buttons[top].click();
   }
 }
