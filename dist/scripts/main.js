@@ -127,7 +127,7 @@ function handleSwipe(direction) {
     buttons[clickIdx].click();
   }
 
-  if (direction === 'down' && activeIdx !== top) {
+  if (direction === 'down') {
     buttons[top].click();
   }
 }
