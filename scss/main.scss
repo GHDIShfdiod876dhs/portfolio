@@ -1,6 +1,10 @@
 @import './resets';
 @import './variables';
 
+html {
+  overflow: hidden;
+}
+
 body {
   background-image: url('../static/jpg/willian-justen-de-vasconcellos.jpg');
   background-size: cover;
